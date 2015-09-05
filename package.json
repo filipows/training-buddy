@@ -18,13 +18,13 @@
     "url": "https://github.com/filipows/training-buddy/issues"
   },
   "homepage": "https://github.com/filipows/training-buddy#readme",
-
   "scripts": {
     "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
+    "connect-jade-static": "^0.2.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
     "express": "~4.13.1",
