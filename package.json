@@ -1,0 +1,24 @@
+{
+  "name": "training-buddy",
+  "version": "0.0.1",
+  "description": "Application to track your training progress",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/filipows/training-buddy.git"
+  },
+  "keywords": [
+    "training",
+    "log",
+    "excercise",
+    "statistics"
+  ],
+  "author": "filipows",
+  "bugs": {
+    "url": "https://github.com/filipows/training-buddy/issues"
+  },
+  "homepage": "https://github.com/filipows/training-buddy#readme"
+}
