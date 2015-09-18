@@ -1,63 +1,51 @@
 doctype html
-html.full(lang='en')
-  //if lt IE 7
-    html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='en', ng-app='myApp')
-  //if IE 7
-    html.no-js.lt-ie9.lt-ie8(lang='en', ng-app='myApp')
-  //if IE 8
-    html.no-js.lt-ie9(lang='en', ng-app='myApp')
-  // [if gt IE 8] <!
-  html.no-js(lang='en', ng-app='myApp')
-    // <![endif]
-    head
-      meta(charset='utf-8')
-      meta(http-equiv='X-UA-Compatible', content='IE=edge')
-      title Training Buddy
-      meta(name='description', content='')
-      meta(name='viewport', content='width=device-width, initial-scale=1')
-      link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/normalize.css')
-      link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/main.css')
-      link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-      link(rel='stylesheet', href='app.css')
-      link(rel='stylesheet', href='cover.css')
-      script(src='bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js')
-    body
-      .site-wrapper
-        .site-wrapper-inner
-          .cover-container
-            .masthead.clearfix
-              .inner
-                h3.masthead-brand Training Buddy
-                nav
-                  ul.nav.masthead-nav
-                    li.active
-                      a(href='#view1') Home
-                    li
-                      a(href='#/view2') Account
-            .inner.cover
-              h1.cover-heading Log your workout
-              .col-md-5
-                input.form-control(type='text', placeholder='Training type')
-              .col-md-2
-                input.form-control(type='text', placeholder='Rounds')
-              .col-md-2
-                input.form-control(type='text', placeholder='Reps')
-              p.lead
-                a.btn.btn-default(href='#') Log exercise
-            .mastfoot
-              .inner
-                p May the force be with you.
-      //
-        In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-      script(src='bower_components/angular/angular.js')
-      script(src='bower_components/angular-route/angular-route.js')
-      script(src='components/version/version.js')
-      script(src='components/version/version-directive.js')
-      script(src='components/version/interpolate-filter.js')
-      script(src='bower_components/jquery/dist/jquery.js')
-      script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-      script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
-      script(src='app.js')
-      script(src='view1/view1.js')
-      script(src='view2/view2.js')
+html.full(lang='en' ng-app='myApp')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Training Buddy
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/normalize.css')
+    link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/main.css')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='app.css')
+    link(rel='stylesheet', href='cover.css')
+    script(src='bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js')
+  body(ng-controller='TrainingLogCtrl')
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+              h3.masthead-brand Training Buddy
+              nav
+                ul.nav.masthead-nav
+                  li.active
+                    a(href='#view1') Home
+                  li
+                    a(href='#/view2') Account
+          .inner.cover
+            h1.cover-heading Log your workout
+            .col-md-5
+              input.form-control(ng-model='exercise.type' type='text', placeholder='Exercise type')
+            .col-md-2
+              input.form-control(ng-model='exercise.rounds' type='number', placeholder='Rounds')
+            .col-md-2
+              input.form-control(ng-model='exercise.repetitions' type='number', placeholder='Reps')
+            p.lead
+              button.btn.btn-default(type='button' ng-click='save(exercise)') Log exercise
+          .mastfoot
+            .inner
+              p May the force be with you.
+    //
+      In production use:
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/angular-route/angular-route.js')
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
+    script(src='app.js')
+    script(src='view1/view1.js')
+    script(src='view2/view2.js')
