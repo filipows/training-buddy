@@ -1,0 +1,9 @@
+h1.cover-heading Log your workout
+.col-md-5
+  input.form-control(ng-model='exercise.type' type='text', placeholder='Exercise type')
+.col-md-2
+  input.form-control(ng-model='exercise.series' type='number', placeholder='Series')
+.col-md-2
+  input.form-control(ng-model='exercise.repetitions' type='number', placeholder='Reps')
+p.lead
+  button.btn.btn-default(type='button' ng-click='save(exercise)') Log exercise

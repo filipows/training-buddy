@@ -1,5 +1,5 @@
 doctype html
-html.full(lang='en' ng-app='myApp')
+html.full(lang='en' ng-app='trainingBuddy')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -9,10 +9,10 @@ html.full(lang='en' ng-app='myApp')
     link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/normalize.css')
     link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/main.css')
     link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='app.css')
-    link(rel='stylesheet', href='cover.css')
+    link(rel='stylesheet', href='./styles/app.css')
+    link(rel='stylesheet', href='./styles/cover.css')
     script(src='bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js')
-  body(ng-controller='TrainingLogCtrl')
+  body(ng-controller='MainCtrl')
     .site-wrapper
       .site-wrapper-inner
         .cover-container
@@ -21,20 +21,14 @@ html.full(lang='en' ng-app='myApp')
               h3.masthead-brand Training Buddy
               nav
                 ul.nav.masthead-nav
-                  li.active
-                    a(href='#view1') Home
+                  li(ng-class="{active: isActive('/new')}")
+                    a(href='#/new') New
+                  li(ng-class="{active: isActive('/statistics')}")
+                    a(href='#/statistics') Statistics
                   li
-                    a(href='#/view2') Account
+                    a(href='#') Account
           .inner.cover
-            h1.cover-heading Log your workout
-            .col-md-5
-              input.form-control(ng-model='exercise.type' type='text', placeholder='Exercise type')
-            .col-md-2
-              input.form-control(ng-model='exercise.rounds' type='number', placeholder='Rounds')
-            .col-md-2
-              input.form-control(ng-model='exercise.repetitions' type='number', placeholder='Reps')
-            p.lead
-              button.btn.btn-default(type='button' ng-click='save(exercise)') Log exercise
+            ng-view
           .mastfoot
             .inner
               p May the force be with you.
@@ -46,6 +40,6 @@ html.full(lang='en' ng-app='myApp')
     script(src='bower_components/jquery/dist/jquery.js')
     script(src='bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
-    script(src='app.js')
-    script(src='view1/view1.js')
-    script(src='view2/view2.js')
+    script(src='./src/app.js')
+    script(src='./src/newWorkout/newWorkout.js')
+    script(src='./src/statistics/statistics.js')
