@@ -20,4 +20,22 @@ angular.module('trainingBuddy.statisticsView', ['ngRoute'])
       console.log(error);
     }
   );
+
+  $scope.remove = function(exerciseId){
+    var position;
+    $scope.exercises.forEach(function(exercise, index){
+      if (exercise._id === exerciseId) {
+        position = index;
+      }
+    });
+    $scope.exercises.splice(position,1);
+
+    $http.delete(apiUrl + '/exercises/' + exerciseId).then(
+      function(successResponse){
+        console.log(successResponse);
+    },
+      function(errorResponse){
+        console.log(errorResponse);
+    });
+  }
 });
