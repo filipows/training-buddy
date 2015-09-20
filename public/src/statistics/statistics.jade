@@ -1,1 +1,13 @@
-p This is the partial for statistics view.
+table.table.table-bordered.table-hover.statistics-table
+  thead
+    tr
+      th No
+      th Type
+      th Series
+      th Repetitions
+  tbody
+    tr(ng-repeat="exercise in exercises")
+      td {{ $index + 1 }}
+      td {{ exercise.type }}
+      td {{ exercise.series }}
+      td {{ exercise.repetitions }}
