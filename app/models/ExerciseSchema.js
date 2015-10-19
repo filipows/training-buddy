@@ -5,7 +5,7 @@ var ExerciseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  series: {
+  series: {   // [TODO]: later should be series: [Number]  (for ex: series: [25, 20, 15, 10]
     type: Number,
     required: false
   },

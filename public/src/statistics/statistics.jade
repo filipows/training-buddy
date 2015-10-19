@@ -2,14 +2,10 @@ table.table.table-bordered.table-hover.statistics-table
   thead
     tr
       th No.
-      th Type
-      th Series
-      th Repetitions
-      th
+      th Number of exercises
+      th Duration
   tbody
-    tr(ng-repeat="exercise in exercises")
+    tr(ng-repeat="workout in workouts")
       td {{ $index + 1 }}
-      td {{ exercise.type }}
-      td {{ exercise.series }}
-      td {{ exercise.repetitions }}
-      td(ng-click="remove(exercise._id)") x
+      td {{ workout.exercises.length }}
+      td {{ workout.duration }} min

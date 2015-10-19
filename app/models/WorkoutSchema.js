@@ -5,7 +5,7 @@ var WorkoutSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true
+        required: false // [TODO]: add user management
     },
     duration: {
         type: Number,
