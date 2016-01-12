@@ -7,16 +7,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jadeStatic = require('connect-jade-static');
 var methodOverride = require('method-override');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var workouts = require('./routes/workouts');
 
 var app = express();
 
-initializeDb();
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'jade');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -25,6 +25,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
 app.use(cookieParser());
+
+
+var mongooseConnection = initializeDb();
+
+app.use(session({
+  secret: 'SECRET',
+  store: new MongoStore({mongooseConnection: mongooseConnection}),
+  resave: false,
+  saveUninitialized: true
+}));
+
+//--auth
+var mongoose = require('mongoose');
+var UserSchema = require('./app/models/UserSchema'); // TODO: move it, rather create /app/models/user.js than schema here
+var User = mongoose.model('User', UserSchema);
+
+var passport = require('passport');
+LocalStrategy = require('passport-local').Strategy;
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()) );
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+//--
+
+
 app.use(jadeStatic({
   baseDir: path.join(__dirname, '/public'),
   baseUrl: '/',
@@ -33,8 +59,7 @@ app.use(jadeStatic({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', routes);
-app.use('/users', users);
+app.use('/', routes);
 app.use(workouts);
 
 // catch 404 and forward to error handler
@@ -84,4 +109,5 @@ function initializeDb() {
   db.once('open', function() {
     console.log('MongoDB connection successful.');
   });
+  return db;
 };
