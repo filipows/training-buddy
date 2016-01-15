@@ -89,3 +89,73 @@ WagaSchema = {
 
 Schemas:
   Waga, ExerciseType, Exercise, Workout
+
+
+activity {
+  type: squash,
+    category: ogolnorozwojowka,
+    duration: 60min,
+    comment: "gra z Igorem"
+}
+
+activity {
+  type: bieg
+  category: wydolnosciowe
+  duration: 30min,
+    comment: "bieg o puchar rektora"
+}
+
+activity {
+  type: sauna,
+    duration: 45min
+}
+
+activity {
+  type: pompki wasko,
+    powtorzen: [15, 30, 15],
+    comment
+}
+
+activity {
+  type: bieg,
+    duration: 45min
+  tempo: 5min/km
+    ?obciazenie: 3kg
+}
+
+activity {
+  type: scianka,
+    duration: 60min,
+}
+
+
+ActivityType {
+  name: "running",
+    duration: true,
+    pace: true,
+    load: true, //?
+    comment: true
+
+  repetitions: false,
+    poolLength: false,
+    poolSize: false,
+    lengthsUnderwater: false,
+    maxDistanceUnderwater: false,
+    series: false
+}
+
+ActivityType {
+  name: "push ups",
+    repetitions: true,
+    comment: true,
+
+    duration: false,
+    poolLengths: false,
+    poolSize: false,
+    lengthsUnderwater: false,
+    maxDistanceUnderwater: false,
+    pace: false,
+    load: false,
+    series: false,
+    weightSeries: false
+}
