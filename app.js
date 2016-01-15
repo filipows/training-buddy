@@ -38,7 +38,7 @@ app.use(session({
 
 //--auth
 var mongoose = require('mongoose');
-var UserSchema = require('./app/models/UserSchema'); // TODO: move it, rather create /app/models/user.js than schema here
+var UserSchema = require('./app/schemas/UserSchema'); // TODO: move it, rather create /app/models/user.js than schema here
 var User = mongoose.model('User', UserSchema);
 
 var passport = require('passport');

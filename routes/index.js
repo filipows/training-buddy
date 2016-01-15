@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var UserSchema = require('../app/models/UserSchema'); // TODO: move it
+var UserSchema = require('../app/schemas/UserSchema'); // TODO: move it
 var User = mongoose.model('User', UserSchema);
 
 /* GET home page. */
