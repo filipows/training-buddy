@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var ActivityTypeSchema = new mongoose.Schema({
+  //_id: {required: true},
   name: {type: String, required: true},
   category: String,               // {type: String, enum: ['all purpose', 'ogolnorozwojowka'] }
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User',  required: false },

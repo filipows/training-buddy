@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var activitySchema = new mongoose.Schema({
-  type: {type: String, required: true},
+  name: {type: String, required: true},
 
   repetitions: [Number],          // [15, 15,15]
   duration: [Number],             // [30, 30, 30] [s]

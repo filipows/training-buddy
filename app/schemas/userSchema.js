@@ -3,7 +3,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var routineSchema = require('./routineSchema');
 var weightSchema = require('./weightSchema');
-var activityTypeSchema = require('./activityTypeSchema');
+var activityTypeSchema = require('./activityDefinitionSchema');
 
 var userSchema = new mongoose.Schema({
     username: {

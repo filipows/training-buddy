@@ -1,10 +1,10 @@
 var passport = require('passport');
 var express = require('express');
 var router = express.Router();
-
 var mongoose = require('mongoose');
-var UserSchema = require('../app/schemas/UserSchema'); // TODO: move it
-var User = mongoose.model('User', UserSchema);
+
+var User = require('../app/models/user');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

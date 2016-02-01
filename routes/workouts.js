@@ -1,10 +1,8 @@
 var express = require('express');
 var restify = require('express-restify-mongoose');
-var mongoose = require('mongoose');
-var WorkoutSchema = require('../app/schemas/WorkoutSchema');
+var WorkoutModel = require('../app/models/workout');
 
-var WorkouteModel = mongoose.model('Workout', WorkoutSchema);
 var workoutsRouter = express.Router();
-restify.serve(workoutsRouter, WorkouteModel);
+restify.serve(workoutsRouter, WorkoutModel);
 
 module.exports = workoutsRouter;

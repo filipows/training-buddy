@@ -11,7 +11,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
-var workouts = require('./routes/workouts');
+var workoutsRouter = require('./routes/workouts');
 
 var app = express();
 
@@ -38,8 +38,9 @@ app.use(session({
 
 //--auth
 var mongoose = require('mongoose');
-var UserSchema = require('./app/schemas/UserSchema'); // TODO: move it, rather create /app/models/user.js than schema here
-var User = mongoose.model('User', UserSchema);
+
+var User = require('./app/models/user');
+
 
 var passport = require('passport');
 LocalStrategy = require('passport-local').Strategy;
@@ -60,7 +61,11 @@ app.use(jadeStatic({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use(workouts);
+app.use(workoutsRouter);
+app.get('/ping', function(req, res){
+  res.status(200).send('pong');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

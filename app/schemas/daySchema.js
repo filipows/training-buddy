@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var activitySchema = require('./activitySchema');
 
 var daySchema = new mongoose.Schema({
   name: {type: String, required: true},
+  user: { type: mongoose.Schema.ObjectId, ref: 'User',  required: false },
 
-  activities: [activitySchema]
+  activities: [{ type: mongoose.Schema.ObjectId, ref: 'Activity',  required: false }]
 });
 
 module.exports = daySchema;
