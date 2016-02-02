@@ -1,7 +1,7 @@
 var config = {
   application: {
     name: 'Training Buddy',
-    environment: 'dev',
+    environment: 'dev', //not used
     port: 3003
   }
 };
