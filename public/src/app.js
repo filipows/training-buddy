@@ -1,5 +1,7 @@
 'use strict';
 
+import './test.scss';
+
 // Declare app level module which depends on views, and components
 var trainingBuddy = angular.module('trainingBuddy', [
   'ngRoute',

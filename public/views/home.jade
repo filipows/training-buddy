@@ -6,13 +6,14 @@ html.full(lang='en' ng-app='trainingBuddy')
     title Training Buddy
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/normalize.css')
-    link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/main.css')
-    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='./styles/app.css')
-    link(rel='stylesheet', href='./styles/cover.css')
-    link(rel='stylesheet', href='./src/statistics/statistics.css')
-    script(src='bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js')
+    //link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/normalize.css')
+    //link(rel='stylesheet', href='bower_components/html5-boilerplate/dist/css/main.css')
+    //link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='assets/styles/app.css')
+    link(rel='stylesheet', href='assets/styles/cover.css')
+    link(rel='stylesheet', href='assets/bundle.css')
+    //link(rel='stylesheet', href='./src/statistics/statistics.css')
+    //script(src='bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js')
   body(ng-controller='MainCtrl')
     .site-wrapper
       .site-wrapper-inner
@@ -33,14 +34,12 @@ html.full(lang='en' ng-app='trainingBuddy')
           .mastfoot
             .inner
               p May the force be with you.
-    //
-      In production use:
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-    script(src='bower_components/angular/angular.js')
-    script(src='bower_components/angular-route/angular-route.js')
-    script(src='bower_components/jquery/dist/jquery.js')
-    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-    script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
-    script(src='./src/app.js')
-    script(src='./src/newWorkout/newWorkout.js')
-    script(src='./src/statistics/statistics.js')
+    script(src='assets/bundle.js')
+    //script(src='bower_components/angular/angular.js')
+    //script(src='bower_components/angular-route/angular-route.js')
+    //script(src='bower_components/jquery/dist/jquery.js')
+    //script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    //script(src='bower_components/angular-bootstrap/ui-bootstrap.js')
+    //script(src='./src/app.js')
+    //script(src='./src/newWorkout/newWorkout.js')
+    //script(src='./src/statistics/statistics.js')

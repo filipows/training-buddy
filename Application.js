@@ -13,7 +13,11 @@ let express = require('express'),
     http = require('http'),
     mongoose = require('mongoose'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy,
+    webpack = require('webpack'),
+    webpackMiddleware = require('webpack-dev-middleware'),
+    webpackHotMiddleware = require('webpack-hot-middleware'),
+    webpackConfig = require('./public/webpack.config.js');
 
 let User = require('./app/models/User'),
     loginRouter = require('./routes/login'),
@@ -96,7 +100,34 @@ class Application {
   }
 
   _serveStaticFiles() {
-    this.app.use(express.static(path.join(__dirname, 'public')));
+    if (process.env.NODE_ENV !== 'production') {
+      this._useWebpackMiddleware();
+    } else {
+      this.app.use(webpackConfig.output.publicPath, express.static(webpackConfig.output.path));
+    }
+
+    this.app.use(webpackConfig.output.publicPath + '/images', express.static(path.join(__dirname, 'public', 'images')));
+    this.app.use(webpackConfig.output.publicPath + '/styles', express.static(path.join(__dirname, 'public', 'styles')));
+    //this.app.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, 'public')));
+  }
+
+  _useWebpackMiddleware() {
+    const compiler = webpack(webpackConfig);
+    const middleware = webpackMiddleware(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+      contentBase: 'src',
+      stats: {
+        colors: true,
+        hash: false,
+        timings: true,
+        chunks: false,
+        chunkModules: false,
+        modules: false
+      }
+    });
+
+    this.app.use(middleware);
+    this.app.use(webpackHotMiddleware(compiler));
   }
 
   _routing() {
