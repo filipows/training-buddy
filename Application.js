@@ -43,6 +43,7 @@ class Application {
     let port = this.config.application.port;
     this.server = http.createServer(this.app).listen(port, () => {
       console.log('Express server listening on port ' + port);
+      console.log('http://localhost:' + port);
     });
   }
 
@@ -108,6 +109,7 @@ class Application {
 
     this.app.use(webpackConfig.output.publicPath + '/images', express.static(path.join(__dirname, 'public', 'images')));
     this.app.use(webpackConfig.output.publicPath + '/styles', express.static(path.join(__dirname, 'public', 'styles')));
+    this.app.use(webpackConfig.output.publicPath + '/vendor', express.static(path.join(__dirname, 'public', 'node_modules')));
     //this.app.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, 'public')));
   }
 

@@ -13,8 +13,16 @@
   },
   "author": "filipows",
   "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2"
+  },
   "devDependencies": {
     "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "angular-touch": "^1.5.2",
+    "angular-ui-bootstrap": "^1.2.5",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",

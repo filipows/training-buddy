@@ -1,16 +1,14 @@
 extends layout
 
+block css
+  link(rel='stylesheet', href='assets/styles/login.css')
+
 block content
-  h2 Register
-
-  form(action="/register",method="post")
-    div
-      label Username
-      input(type="text",name="username")
-
-    div
-      label Password
-      input(type="password",name="password")
-
-    div
-      input(type="submit",value="Register")
+  .form-container
+    form.form-login(action="/register", method="POST")
+      h2.form-login-heading Register
+      label.sr-only(for='inputUsername') Username
+      input#inputUsername.form-control(type='text', placeholder='Username', required='', autofocus='', name="username")
+      label.sr-only(for='inputPassword') Password
+      input#inputPassword.form-control(type='password', placeholder='Password', required='', name="password")
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Register

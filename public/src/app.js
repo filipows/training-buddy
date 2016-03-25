@@ -1,12 +1,16 @@
 'use strict';
 
+import 'angular';
+import 'angular-route';
+import 'angular-animate';
+import 'angular-touch';
+import 'angular-ui-bootstrap';
+
 import './test.scss';
 
 // Declare app level module which depends on views, and components
 var trainingBuddy = angular.module('trainingBuddy', [
   'ngRoute',
-  'trainingBuddy.newWorkoutView',
-  'trainingBuddy.statisticsView',
   'ui.bootstrap'
 ]).
   config(['$routeProvider', function($routeProvider) {
