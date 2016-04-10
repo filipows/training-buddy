@@ -1,14 +1,10 @@
-import {module} from '../app';
+'use strict';
+import './dashboard.component.scss';
+import {trainingBuddyModule} from '../module';
 
-
-class DashboardController {
-  constructor(){
-    console.log('dupsss');
-  }
-}
-
-module.component('dashboard', {
+trainingBuddyModule.component('dashboard', {
   template: `<h1 class="page-header">Dashboard </h1>`,  //<p>Hello, {{ $ctrl.user.name }} !</p>
-  controller: DashboardController
-
+  controller: function(){
+    console.log('dashboard');
+  }
 });

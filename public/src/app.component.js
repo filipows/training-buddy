@@ -1,24 +1,9 @@
 'use strict';
+import './app.component.scss';
+import {trainingBuddyModule} from './module.js';
+import './dashboard/dashboard.component';
 
-import angular from 'angular';
-import angularRouter from '../node_modules/@angular/router/angular1/angular_1_router.js'
-//import 'angular-route';
-import 'angular-animate';
-import 'angular-touch';
-import 'angular-ui-bootstrap';
-
-import './app.scss';
-
-// Declare app level module which depends on views, and components
-var trainingBuddy = angular.module('trainingBuddy', [
-  'ngComponentRouter',
-  'ui.bootstrap'
-]).config(['$locationProvider', function ($locationProvider) {
-    //$routeProvider.otherwise({redirectTo: '/dashboard'});
-    $locationProvider.html5Mode(true);
-  }])
-  .value('$routerRootComponent', 'app') // is it needed? seems to work without
-  .component('app', {
+trainingBuddyModule.component('app', {
     template: `
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -45,13 +30,9 @@ var trainingBuddy = angular.module('trainingBuddy', [
     `,
     $routeConfig: [
       {path: '/dashboard', name: 'Dashboard', component: 'dashboard'},
-      //{path: '/*', redirectTo: ['Dashboard']}
+      {path: '/*', redirectTo: ['Dashboard']} //TODO: not working? what about .otherwise alternative?
     ],
     controller: function() {
       console.log('main');
     }
   });
-
-
-export {trainingBuddy as module};
-import './dashboard/dashboard.component';
