@@ -14,6 +14,8 @@
   "author": "filipows",
   "license": "ISC",
   "dependencies": {
+    "@angular/router": "^0.2.0",
+    "angular": "^1.5.3",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.2"
   },

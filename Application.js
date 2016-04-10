@@ -133,12 +133,11 @@ class Application {
   }
 
   _routing() {
-    this.app.use('/', loginRouter);
-    this.app.use('/api/v1', workoutsRouter);
-
+    this.app.use('/api/v1', workoutsRouter); //TODO: add authentication
     this.app.get('/ping', function(req, res){
       res.status(200).send('pong');
     });
+    this.app.use('/*', loginRouter);
   }
 
   _catchAndForwardToErrorHandler() {

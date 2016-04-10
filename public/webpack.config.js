@@ -5,7 +5,7 @@ var webpack = require('webpack');
 var ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: '  source-map', //source-map (compared to eval-source-map) is slower but will enable breakpoints on initial page load
   entry: [
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'src/app.js')

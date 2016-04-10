@@ -3,18 +3,21 @@ html.full(lang='en' ng-app='trainingBuddy')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    base(href="/")
     title Training Buddy
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='assets/vendor/bootstrap/dist/css/bootstrap.min.css')
-    //link(rel='stylesheet', href='assets/styles/app.css')
-    //link(rel='stylesheet', href='assets/styles/cover.css')
     link(rel='stylesheet', href='assets/bundle.css')
-  body(ng-controller='MainCtrl')
-    .site-wrapper
+  body()
+    app
+
+
+          //ng-outlet
+    //.site-wrapper
       .site-wrapper-inner
         .cover-container
-          .masthead.clearfix
+          .masthead
             .inner
               h3.masthead-brand Training Buddy
               nav
