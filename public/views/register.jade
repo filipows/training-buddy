@@ -7,8 +7,13 @@ block content
   .form-container
     form.form-login(action="/register", method="POST")
       h2.form-login-heading Register
-      label.sr-only(for='inputUsername') Username
-      input#inputUsername.form-control(type='text', placeholder='Username', required='', autofocus='', name="username")
-      label.sr-only(for='inputPassword') Password
-      input#inputPassword.form-control(type='password', placeholder='Password', required='', name="password")
+      .form-group(class=message ? "has-error" : "")
+        label.sr-only(for='inputUsername') Username
+        input#inputUsername.form-control(type='text', placeholder='Username', required='', autofocus='', name="username")
+      .form-group
+        label.sr-only(for='inputPassword') Password
+        input#inputPassword.form-control(type='password', placeholder='Password', required='', name="password")
+      if message
+        .alert.alert-danger.incorrect-password= message
+
       button.btn.btn-lg.btn-primary.btn-block(type='submit') Register

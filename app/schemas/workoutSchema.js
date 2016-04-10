@@ -6,6 +6,7 @@ var workoutSchema = new mongoose.Schema({
     date: {type: Date, default: Date.now},
     duration: { type: Number, required: false },
     activities: [activitySchema],
+    tags: [String],
 
     stretching: {
         duration: Number, // min

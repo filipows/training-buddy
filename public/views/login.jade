@@ -6,15 +6,16 @@ block css
 block content
   .form-container
     form.form-login(action="/login", method="post")
+
       h2.form-login-heading Please log in
-      label.sr-only(for='inputUsername') Username
-      input#inputUsername.form-control(type='text', placeholder='Username', required='', autofocus='', name="username")
-      label.sr-only(for='inputPassword') Password
-      input#inputPassword.form-control(type='password', placeholder='Password', required='', name="password")
-      //.checkbox
-        label
-          input(type='checkbox', value='remember-me')
-          |  Remember me
+      .form-group(class=message ? "has-error" : "")
+        label.sr-only(for='inputUsername') Username
+        input#inputUsername.form-control(type='text', placeholder='Username', required='', autofocus='', name="username")
+      .form-group(class=message ? "has-error" : "")
+        label.sr-only(for='inputPassword') Password
+        input#inputPassword.form-control(type='password', placeholder='Password', required='', name="password")
+      if message
+        .alert.alert-danger.incorrect-password= message
       div Don't have account? &nbsp;
         a(href="/register") Register here
       button.btn.btn-lg.btn-primary.btn-block(type='submit') Log in
