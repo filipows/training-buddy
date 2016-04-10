@@ -29,8 +29,8 @@ trainingBuddyModule.component('app', {
       </div>
     `,
     $routeConfig: [
-      {path: '/dashboard', name: 'Dashboard', component: 'dashboard'},
-      {path: '/*', redirectTo: ['Dashboard']} //TODO: not working? what about .otherwise alternative?
+      {path: '/dashboard', name: 'Dashboard', component: 'dashboard', useAsDefault: true},
+      {path: '/**', redirectTo: ['Dashboard']}
     ],
     controller: function() {
       console.log('main');

@@ -6,14 +6,6 @@ var mongoose = require('mongoose');
 var User = require('../app/models/User');
 
 
-router.get('/', function (req, res, next) {
-  if (!req.user) {
-    res.redirect('/login');
-  } else {
-    res.render('home');
-  }
-});
-
 router.get('/register', function (req, res) {
   res.render('register', {});
 });
@@ -36,9 +28,6 @@ router.get('/login', function (req, res) {
   res.render('login', {user: req.user});
 });
 
-
-
-
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     if (err) { return next(err); }
@@ -52,10 +41,17 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
-
 router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
+});
+
+router.get('/*', function (req, res, next) {
+  if (!req.user) {
+    res.redirect('/login');
+  } else {
+    res.render('home');
+  }
 });
 
 

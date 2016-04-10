@@ -137,7 +137,7 @@ class Application {
     this.app.get('/ping', function(req, res){
       res.status(200).send('pong');
     });
-    this.app.use('/*', loginRouter);
+    this.app.use('/', loginRouter);
   }
 
   _catchAndForwardToErrorHandler() {
