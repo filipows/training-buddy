@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/filipows/training-buddy#readme",
   "scripts": {
-    "start": "node app",
+    "start": "nodemon app",
     "build": "cd public && npm run build",
     "postinstall": "cd public && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
