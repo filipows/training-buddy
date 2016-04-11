@@ -9,7 +9,7 @@ let trainingBuddyModule = angular.module('trainingBuddy', [
   'ngComponentRouter',
   'ui.bootstrap'
 ]).config(['$locationProvider', function ($locationProvider) {
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);  // TODO: couldn't logout on main page if it's on
   }])
   .value('$routerRootComponent', 'app'); // is it needed? seems to work without
 

@@ -3,20 +3,43 @@ import './app.component.scss';
 import {trainingBuddyModule} from './module.js';
 import './dashboard/dashboard.component';
 
+class AppController {
+  constructor() {
+    console.log('app controller');
+  }
+}
+
 trainingBuddyModule.component('app', {
-    template: `
+  template: `
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Training Buddy</a>
+            <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">
+              <span class="brand-text">Training Buddy
+                <sup>beta</sup>
+              </span>
+            </a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a ng-link="['Dashboard']" >Dashboard</a></li>
               <li><a href="#">New workout</a></li>
-              <li><a href="#">UserName</a></li>
-              <li><a href="#">Help</a></li>
-            </ul>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="min-width: 210px;">
+                    <li><a href="#">Help</a> </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Account</li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="logout">Logout</a></li>
+                  </ul>
+              </li>
           </div>
         </div>
       </nav>
@@ -28,11 +51,9 @@ trainingBuddyModule.component('app', {
         </div>
       </div>
     `,
-    $routeConfig: [
-      {path: '/dashboard', name: 'Dashboard', component: 'dashboard', useAsDefault: true},
-      {path: '/**', redirectTo: ['Dashboard']}
-    ],
-    controller: function() {
-      console.log('main');
-    }
-  });
+  $routeConfig: [
+    {path: '/dashboard', name: 'Dashboard', component: 'dashboard', useAsDefault: true},
+    {path: '/**', redirectTo: ['Dashboard']}
+  ],
+  controller: AppController
+});
