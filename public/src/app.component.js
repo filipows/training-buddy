@@ -31,13 +31,14 @@ trainingBuddyModule.component('app', {
               <li><a ng-link="['Dashboard']" >Dashboard</a></li>
               <li><a href="#">New workout</a></li>
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile &nbsp;<i class="fa fa-user"></i><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu" style="min-width: 210px;">
-                    <li><a href="#">Help</a> </li>
+                    <li><a href="#"><i class="fa fa-question-circle-o fa-fw"></i>&nbsp; Help</a> </li>
+                    <li><a href="mailto:support@trainingbuddy.com"><i class="fa fa-envelope fa-fw"></i>&nbsp; Contact support</a> </li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Account</li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="logout">Logout</a></li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i>&nbsp; Settings</a></li>
+                    <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i>&nbsp; Logout</a></li>
                   </ul>
               </li>
           </div>
