@@ -2,12 +2,8 @@
 import './app.component.scss';
 import {trainingBuddyModule} from './module.js';
 import './dashboard/dashboard.component';
+import './workouts/workouts.component';
 
-class AppController {
-  constructor() {
-    console.log('app controller');
-  }
-}
 
 trainingBuddyModule.component('app', {
   template: `
@@ -29,7 +25,7 @@ trainingBuddyModule.component('app', {
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a ng-link="['Dashboard']" >Dashboard</a></li>
-              <li><a href="#">New workout</a></li>
+              <li><a ng-link="['Workouts']">Workouts</a></li>
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile &nbsp;<i class="fa fa-user"></i><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu" style="min-width: 210px;">
@@ -54,7 +50,7 @@ trainingBuddyModule.component('app', {
     `,
   $routeConfig: [
     {path: '/dashboard', name: 'Dashboard', component: 'dashboard', useAsDefault: true},
+    {path: '/workouts/...',  name: 'Workouts',  component: 'workouts'},
     {path: '/**', redirectTo: ['Dashboard']}
-  ],
-  controller: AppController
+  ]
 });
