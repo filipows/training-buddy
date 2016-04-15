@@ -16,9 +16,12 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.5.3",
+    "angular-ui-select": "^0.12.100",
     "bootstrap": "^3.3.6",
     "font-awesome": "git+https://github.com/FortAwesome/Font-Awesome.git",
-    "jquery": "^2.2.2"
+    "jade-loader": "^0.8.0",
+    "jquery": "^2.2.2",
+    "ng-tags-input": "^3.0.0"
   },
   "devDependencies": {
     "angular": "^1.5.2",

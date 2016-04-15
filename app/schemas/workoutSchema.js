@@ -4,7 +4,7 @@ var activitySchema = require('./activitySchema');
 var workoutSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.ObjectId, ref: 'User',  required: false },
     date: {type: Date, default: Date.now},
-    duration: { type: Number, required: false },
+    duration: { type: Number, required: false },  // miliseconds
     activities: [activitySchema],
     tags: [String],
 
@@ -22,5 +22,10 @@ var workoutSchema = new mongoose.Schema({
     }
 });
 
+//workoutSchema.pre('save', function (next, req) {
+//  console.log('pre save schema');
+//    console.log(req);
+//  next();
+//});
 
 module.exports = workoutSchema;

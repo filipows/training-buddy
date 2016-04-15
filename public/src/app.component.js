@@ -4,6 +4,7 @@ import {trainingBuddyModule} from './module.js';
 import './dashboard/dashboard.component';
 import './workouts/workouts.component';
 
+import './services/index';
 
 trainingBuddyModule.component('app', {
   template: `

@@ -35,11 +35,14 @@ module.exports = {
     }, {
       test: /\.json$/,
       loader: 'json'
+    }, {
+      test: /\.jade$/,
+      loader: 'jade-loader'
     },
-    //{
-    //  test: /\.css$/,
-    //  loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-    //},
+    {
+      test: /\.css$/,
+      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+    },
     {
       test: /\.scss/,
       loader: ExtractPlugin.extract('style', 'css!sass')

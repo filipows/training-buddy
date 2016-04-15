@@ -1,0 +1,59 @@
+h2 Log new workout:
+form.form-horizontal
+  .form-group
+    label.col-sm-2.control-label(for='') Date
+    .col-sm-10
+      .input-group
+        input.form-control(
+          type="text"
+          uib-datepicker-popup="{{$ctrl.dateFormat}}"
+          ng-model="$ctrl.form.date"
+          is-open="$ctrl.datePopup.opened"
+          datepicker-options="$ctrl.dateOptions"
+          ng-required="true"
+          close-text="Close"
+          )
+        span.input-group-btn
+          button.btn.btn-default(type="button" ng-click="$ctrl.openDatePicker()")
+            i.glyphicon.glyphicon-calendar
+  .form-group
+    label.col-sm-2.control-label(for="") Duration
+    .col-sm-10
+      .input-group
+        input.form-control(type="number" placeholder="00" ng-model="$ctrl.form.duration.h")
+        .input-group-addon Hours
+        input.form-control(type="number" placeholder="00" ng-model="$ctrl.form.duration.m")
+        .input-group-addon Minutes
+        input.form-control(type="number" placeholder="00" ng-model="$ctrl.form.duration.s")
+        .input-group-addon Seconds
+  .form-group
+    label.col-sm-2.control-label(for="") Tags
+    .col-sm-10
+      tags-input(ng-model="$ctrl.form.tags")
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      button.btn.btn-default(ng-click="$ctrl.addActivity()") + Add activity
+      ul
+        li(ng-repeat="activity in $ctrl.form.activities track by $index")
+          div.form-inline
+            select#select.form-control(name="select" ng-model="activity.name")
+              option(ng-repeat="activity in $ctrl.possibleActivities" value="{{activity.name}}") {{activity.name}}
+            input.form-control(ng-repeat="repetition in activity.repetitions track by $index" type="number" ng-model="repetition")
+            button.btn.btn-default(ng-click="$ctrl.addRepetition(activity.repetitions)")
+              i.fa.fa-plus
+
+  .form-group
+    label.col-sm-2.control-label(for="") Stretching
+    .col-sm-10.form-inline
+      .col-sm-3.input-group
+        input.form-control(type="number" placeholder="00")
+        .input-group-addon Minutes
+      .col-sm-9.input-group
+        tags-input(ng-model="$ctrl.form.stretching.exercises" placeholder="Add exercise")
+  .form-group
+    label.col-sm-2.control-label(for="") Comment
+    .col-sm-10
+      textarea.form-control(rows="5" placeholder='Place your comment here' ng-model="$ctrl.form.comment")
+  .form-group
+    .col-sm-offset-9.col-sm-3
+      button.btn.btn-primary.pull-right.btn-save(ng-click="$ctrl.save()") Save
