@@ -84,3 +84,13 @@ body {
     float: left;
     margin-bottom: 0;
 }
+
+.footer {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4em;
+    color: #D5D5D5;
+    font-family: serif;
+}

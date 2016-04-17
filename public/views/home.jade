@@ -15,26 +15,6 @@ html.full(lang='en')
     link(rel='stylesheet', href='assets/vendor/angular-ui-select/select.min.css')
   body()
     app
-          //ng-outlet
-    //.site-wrapper
-      .site-wrapper-inner
-        .cover-container
-          .masthead
-            .inner
-              h3.masthead-brand Training Buddy
-              nav
-                ul.nav.masthead-nav
-                  li(ng-class="{active: isActive('/new')}")
-                    a(href='#/new') New
-                  li(ng-class="{active: isActive('/statistics')}")
-                    a(href='#/statistics') Statistics
-                  li
-                    a(href='#') Account
-          .inner.cover
-            ng-view
-          .mastfoot
-            .inner
-              p May the force be with you.
     script(src='assets/vendor/jquery/dist/jquery.min.js')
     script(src='assets/vendor/bootstrap/dist/js/bootstrap.min.js')
     script(src='assets/bundle.js')

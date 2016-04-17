@@ -1,12 +1,12 @@
 var express = require('express');
 var restify = require('express-restify-mongoose');
-var ActivityDefinitionModel = require('../app/models/ActivityDefinition');
+var ActivityTypeModel = require('../app/models/ActivityType');
 
-var activityDefinitionRouter = express.Router();
-restify.serve(activityDefinitionRouter, ActivityDefinitionModel, {
+var activityTypeRouter = express.Router();
+restify.serve(activityTypeRouter, ActivityTypeModel, {
   prefix: '', // default /api
   version: '', // default /v1,
   name: 'activity'
 });
 
-module.exports = activityDefinitionRouter;
+module.exports = activityTypeRouter;

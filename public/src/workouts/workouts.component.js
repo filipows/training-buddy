@@ -1,5 +1,4 @@
 'use strict';
-import './workouts.component.scss';
 import {trainingBuddyModule} from '../module';
 import './workoutList.component';
 import './workoutDetail.component';

@@ -17,6 +17,10 @@ form.form-horizontal
           button.btn.btn-default(type="button" ng-click="$ctrl.openDatePicker()")
             i.glyphicon.glyphicon-calendar
   .form-group
+    label.col-sm-2.control-label(for="") Time of beginning
+    .col-sm-10
+      input.form-control(type="time" placeholder="")
+  .form-group
     label.col-sm-2.control-label(for="") Duration
     .col-sm-10
       .input-group
@@ -32,16 +36,28 @@ form.form-horizontal
       tags-input(ng-model="$ctrl.form.tags")
   .form-group
     .col-sm-offset-2.col-sm-10
-      button.btn.btn-default(ng-click="$ctrl.addActivity()") + Add activity
+      button.btn.btn-primary(ng-click="$ctrl.addActivity()")
+        i.fa.fa-plus &nbsp
+        | Add activity
+      button.btn.btn-danger(ng-if="$ctrl.form.activities.length" ng-click="$ctrl.removeActivity()")
+        i.fa.fa-minus
       ul
         li(ng-repeat="activity in $ctrl.form.activities track by $index")
           div.form-inline
             select#select.form-control(name="select" ng-model="activity.name")
+              option(value="" disabled selected) Select activity
               option(ng-repeat="activity in $ctrl.possibleActivities" value="{{activity.name}}") {{activity.name}}
-            input.form-control(ng-repeat="repetition in activity.repetitions track by $index" type="number" ng-model="repetition")
-            button.btn.btn-default(ng-click="$ctrl.addRepetition(activity.repetitions)")
+            button.btn.btn-primary(ng-click="$ctrl.addRepetition(activity.repetitions)")
               i.fa.fa-plus
-
+            button.btn.btn-danger(ng-if="activity.repetitions.length" ng-click="$ctrl.removeLastRepetition(activity.repetitions)")
+              i.fa.fa-minus
+            ul(ng-if="$ctrl.getActivityType(activity.name) === 'repetitions'")
+              li(ng-repeat="repetition in activity.repetitions track by $index")
+                input.form-control(type="number" ng-model="activity.repetitions[$index]")
+            ul(ng-if="$ctrl.getActivityType(activity.name) === 'timeAndDistance'")
+              //TODO
+              //li(ng-repeat="repetition in activity.repetitions track by $index")
+                input.form-control(type="number" ng-model="activity.repetitions[$index]")
   .form-group
     label.col-sm-2.control-label(for="") Stretching
     .col-sm-10.form-inline

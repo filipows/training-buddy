@@ -3,7 +3,6 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var routineSchema = require('./routineSchema');
 var weightSchema = require('./weightSchema');
-var activityTypeSchema = require('./activityDefinitionSchema');
 
 var userSchema = new mongoose.Schema({
     username: {
@@ -13,10 +12,8 @@ var userSchema = new mongoose.Schema({
 
     // [TODO] consider below fields if here in user or new collection
     routines: [routineSchema],
-    weightLogs: [weightSchema],
-    customActivityTypes: [activityTypeSchema]
+    weightLogs: [weightSchema]
 });
 
 userSchema.plugin(passportLocalMongoose);
-
 module.exports = userSchema;  // [TODO] return mongoose model rather than schema, ex: module.exports = mongoose.model('User', UserSchema);

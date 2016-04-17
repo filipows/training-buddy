@@ -3,6 +3,7 @@ import './app.component.scss';
 import {trainingBuddyModule} from './module.js';
 import './dashboard/dashboard.component';
 import './workouts/workouts.component';
+import './activities/activities.component';
 
 import './services/index';
 
@@ -27,6 +28,7 @@ trainingBuddyModule.component('app', {
             <ul class="nav navbar-nav navbar-right">
               <li><a ng-link="['Dashboard']" >Dashboard</a></li>
               <li><a ng-link="['Workouts']">Workouts</a></li>
+              <li><a ng-link="['Activities']">Activities</a></li>
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile &nbsp;<i class="fa fa-user"></i><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu" style="min-width: 210px;">
@@ -52,6 +54,7 @@ trainingBuddyModule.component('app', {
   $routeConfig: [
     {path: '/dashboard', name: 'Dashboard', component: 'dashboard', useAsDefault: true},
     {path: '/workouts/...',  name: 'Workouts',  component: 'workouts'},
+    {path: '/activities/...',  name: 'Activities',  component: 'activities'},
     {path: '/**', redirectTo: ['Dashboard']}
   ]
 });

@@ -22,8 +22,7 @@ let express = require('express'),
 let User = require('./app/models/User'),
     loginRouter = require('./routes/login'),
     workoutsRouter = require('./routes/workouts'),
-    activitiesRouter = require('./routes/activities'),
-    activityCategoriesRouter = require('./routes/categories');
+    activitiesRouter = require('./routes/activities');
 
 class Application {
   constructor(config) {
@@ -137,7 +136,6 @@ class Application {
   _routing() {
     this.app.use('/api/v1', workoutsRouter); //TODO: add authentication and limiting results to logged user workouts
     this.app.use('/api/v1', activitiesRouter);
-    this.app.use('/api/v1', activityCategoriesRouter);
     this.app.get('/ping', function(req, res){
       res.status(200).send('pong');
     });

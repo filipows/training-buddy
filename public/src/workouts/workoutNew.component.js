@@ -2,6 +2,7 @@
 import './workoutNew.component.scss';
 import {trainingBuddyModule} from '../module';
 import template from './workoutNew.component.jade';
+import * as _ from 'lodash';
 
 class WorkoutNewComponent {
   constructor(activitiesService) {
@@ -39,9 +40,23 @@ class WorkoutNewComponent {
     });
   }
 
+  removeActivity() {
+    this.form.activities.splice(this.form.activities.length -1, 1);
+  }
+
   addRepetition(repetitions) {
     console.log('reps:', repetitions);
-    repetitions.push(3);
+    repetitions.push(0);
+  }
+
+  removeLastRepetition(repetitions) {
+    if (repetitions.length > 0){
+      repetitions.splice(repetitions.length-1, 1);
+    }
+  }
+
+  getActivityType(activityName) {
+    return _.get(_.find(this.possibleActivities, {name: activityName}), 'type');
   }
 
   openDatePicker() {

@@ -1,0 +1,53 @@
+h2 Add new activity:
+form.form-horizontal
+  .form-group
+    label.col-sm-2.control-label(for="") Activity name
+    .col-sm-10
+      input.form-control(type="text" placeholder="ex. running" ng-model="$ctrl.activity.name")
+  .form-group
+    label.col-sm-2.control-label(for="") Select icon
+    .col-sm-5
+      select.form-control
+        option(value="") Obrazek 1
+        option(value="") Obrazek 2
+        option(value="") Obrazek 3
+        option(value="") Obrazek 4
+    .col-sm-5
+      button.btn.btn-primary
+        i.fa.fa-plus &nbsp
+        | Add own icon (np. 20px/20px)
+  .form-group
+    label.col-sm-2.control-label(for="") Category
+    .col-sm-10
+      select.form-control
+        option(value="") Cardio
+        option(value="") Shoulders
+        option(value="") Chest
+        option(value="") Back
+        option(value="") Legs
+        option(value="") Abs
+        option(value="" disabled) TODO: + Add new category
+  .form-group
+    label.col-sm-2.control-label(for="") Description
+    .col-sm-10
+      textarea.form-control(rows="5" placeholder='Description of the activity / exercise' ng-model="$ctrl.activity.description")
+  .form-group(ng-repeat="field in $ctrl.activity.fields track by $index")
+    label.col-sm-2.control-label(for="") Field {{ $index + 1 }}
+    .col-sm-5
+      input.form-control(type="text" placeholder="ex. repetitions/weight/time/..." ng-model="field.name")
+    .col-sm-5
+      select.form-control(ng-model="field.type")
+        option(value="" disabled selected) Field type...
+        option(value="number") Number
+        option(value="weight") Weight
+        option(value="time") Time
+        option(value="pace") Pace
+        option(value="distance") Distance
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      button.btn.btn-primary(ng-click="$ctrl.addField()")
+        i.fa.fa-plus &nbsp
+        | Add field
+  .form-group
+    .col-sm-offset-9.col-sm-3
+      button.btn.btn-primary.pull-right.btn-save(ng-click="$ctrl.save()") Save

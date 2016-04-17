@@ -2,9 +2,11 @@ var mongoose = require('mongoose');
 
 var activitySchema = new mongoose.Schema({
   name: {type: String, required: true},
-  //type: {type: String, enum: ['Reps', 'Time']},
+  type: { type: String, enum: ['timeAndDistance', 'repetitions'], required: true },
 
-  repetitions: [Number]
+  timeAndDistance: [{ distance: Number,
+                      time: Number}],
+  repetitions: [{type: Number, required: false}]
 });
 
 module.exports = activitySchema;
